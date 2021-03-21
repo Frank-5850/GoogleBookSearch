@@ -1,14 +1,12 @@
 import { useEffect } from "react";
-import axios from "axios";
+import API from "./utils/API";
 
 function App() {
   useEffect(() => {
     (async () => {
       try {
-        const test = axios.get(
-          `https://www.googleapis.com/books/v1/volumes?q=HarryPotter`
-        );
-        console.log(test);
+        const test = await API.getBook();
+        console.log("test:", test);
       } catch (error) {
         console.log(error);
       }
