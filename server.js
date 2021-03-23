@@ -27,7 +27,7 @@ if (process.env.NODE_ENV === "production") {
 }
 
 // custom routes
-app.use("/test", require("./routes/apiRoutes"));
+app.use("/", require("./routes/apiRoutes"));
 
 // otherwise this route is used
 app.get("*", (req, res) => {

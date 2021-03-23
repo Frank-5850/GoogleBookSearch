@@ -1,11 +1,13 @@
 const db = require("../models/bookModel");
 
 module.exports = {
-  test: async (req, res) => {
+  saveBook: async (req, res) => {
     try {
+      // db.set(req.body);
       console.log("success");
       res.json("success");
     } catch (error) {
+      console.log("error");
       console.log(error);
     }
   },
