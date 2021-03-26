@@ -6,14 +6,11 @@ const Search = () => {
   const [form, setForm] = useState([]);
 
   const searchBook = async (e) => {
-    console.log(form);
     e.preventDefault(e);
     try {
       const result = await API.getBook(form.form);
       const { items } = result.data;
-      console.log("item:", items);
       setBooks(items);
-      console.log("books:", books);
     } catch (error) {
       console.log(error);
     }
@@ -38,7 +35,6 @@ const Search = () => {
 
   const onChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
-    console.log("changing", form);
   };
 
   return (
@@ -63,13 +59,7 @@ const Search = () => {
           </div>
         </form>
       </div>
-      <button
-        className="btn badge-pill btn-outline-dark mt-3"
-        rel="noreferrer"
-        onClick={saveBookFunction}
-      >
-        Save
-      </button>
+
       {books.map((item, index) => (
         <div className="card mb-3" key={index}>
           <div className="row">

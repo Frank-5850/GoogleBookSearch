@@ -2,7 +2,6 @@ import axios from "axios";
 
 export default {
   getBook: async (info) => {
-    console.log("info:", info);
     try {
       const test = await axios.get(
         `https://www.googleapis.com/books/v1/volumes?q=${info}`
@@ -14,20 +13,13 @@ export default {
   },
   saveBook: async () => {
     try {
-      const result = await axios
-        .post("/saveBook", {
-          title: "title",
-          authors: "author",
-          description: "description",
-          image: "image",
-          link: "link",
-        })
-        .then(function (response) {
-          console.log(response);
-        })
-        .catch(function (error) {
-          console.log(error);
-        });
+      const result = await axios.post("/saveBook", {
+        title: "title",
+        authors: "author",
+        description: "description",
+        image: "image",
+        link: "link",
+      });
       console.log("click", result);
     } catch (err) {
       console.log(err);
